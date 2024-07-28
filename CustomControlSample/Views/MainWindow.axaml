@@ -6,6 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="CustomControlSample.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
+        xmlns:controls="clr-namespace:CustomControlSample.Controls"
         Icon="/Assets/avalonia-logo.ico"
         Title="CustomControlSample">
 
@@ -15,6 +16,20 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+   
+    <StackPanel Spacing="5" Margin="10">
+
+        <TextBlock Margin="0,10,0,0">Number of Stars:</TextBlock>
+        <NumericUpDown Value="{Binding NumberOfStars}" />
+
+        <TextBlock Margin="0,10,0,0">Current Value:</TextBlock>
+        <NumericUpDown Value="{Binding RatingValue}" />
+
+        <TextBlock Margin="0,10,0,0">Result: </TextBlock>
+        <controls:RatingControl NumberOfStars="{Binding NumberOfStars}" 
+                                Value="{Binding RatingValue}" Background="Aqua"/>
+        <controls:TimeCalendarControl SelectedDate="{Binding SelectedDate}"/>
+    </StackPanel>
+
 
 </Window>

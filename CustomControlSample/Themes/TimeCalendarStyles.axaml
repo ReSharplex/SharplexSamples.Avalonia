@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:controls="clr-namespace:CustomControlSample.Controls"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Add Resources Here -->
+    
+    <Design.PreviewWith>
+        <StackPanel Width="400" Spacing="10">
+            <ThemeVariantScope RequestedThemeVariant="Default">
+                <StackPanel Spacing="10" Background="{DynamicResource SystemRegionBrush}">
+                    <controls:TimeCalendarControl/>
+                </StackPanel>
+            </ThemeVariantScope>
+        </StackPanel>
+    </Design.PreviewWith>
+    
+    <ControlTheme x:Key="{x:Type controls:TimeCalendarControl}" TargetType="controls:TimeCalendarControl">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <DataValidationErrors>
+                    <ListBox x:Name="PART_TimeCalendarPresenter" ItemsSource="{TemplateBinding DatesOnlies}">
+                        
+                    </ListBox>
+                </DataValidationErrors>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+    
+</ResourceDictionary>
